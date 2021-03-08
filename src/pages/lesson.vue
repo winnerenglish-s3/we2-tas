@@ -1,5 +1,5 @@
 <template>
-  <q-page></q-page>
+  <q-page>แผนการสอน</q-page>
 </template>
 
 <script>

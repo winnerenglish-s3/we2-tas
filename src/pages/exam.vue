@@ -1,5 +1,5 @@
 <template>
-  <q-page>ใบงาน</q-page>
+  <q-page>ข้อสอบ</q-page>
 </template>
 
 <script>

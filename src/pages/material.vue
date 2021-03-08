@@ -1,5 +1,5 @@
 <template>
-  <q-page></q-page>
+  <q-page>เนื้อหา</q-page>
 </template>
 
 <script>

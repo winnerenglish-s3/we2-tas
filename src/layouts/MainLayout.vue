@@ -40,7 +40,12 @@
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
       <q-list>
         <template v-for="(menuItem, index) in essentialLinks">
-          <q-item :class="menuItem.position" clickable v-ripple>
+          <q-item
+            @click="goto(menuItem.type)"
+            :class="menuItem.position"
+            clickable
+            v-ripple
+          >
             <q-item-section>
               <span>{{ menuItem.title }}</span>
             </q-item-section>
@@ -124,6 +129,15 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+      goto(val) {
+        val == 1 ? this.$router.push("/main") : "";
+        val == 2 ? this.$router.push("/lesson") : "";
+        val == 3 ? this.$router.push("/student") : "";
+        val == 4 ? this.$router.push("/exam") : "";
+        val == 5 ? this.$router.push("/material") : "";
+        val == 6 ? this.$router.push("/worksheet") : "";
+        val == 7 ? this.$router.push("/contact") : "";
       },
     };
   },

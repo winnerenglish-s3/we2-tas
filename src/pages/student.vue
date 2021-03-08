@@ -1,5 +1,5 @@
 <template>
-  <q-page></q-page>
+  <q-page>รายชื่อนักเรียน</q-page>
 </template>
 
 <script>
