@@ -36,10 +36,10 @@
         :class="sceen >= 1200 ? ' absolute-center ' : ''"
         style="width: 100%"
       >
-        <div>
+        <div class="q-py-md">
           <img style="max-width: 120px" src="../../public/favicon.png" />
         </div>
-        <div class="q-py-lg" style="color: #505050">
+        <div v-if="sceen < 1200" class="q-pb-lg" style="color: #505050">
           <b>Teacher Assistant System</b>
           <div>ระบบผู้ช่วยครูอัจฉริยะ</div>
         </div>
