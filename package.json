@@ -2,7 +2,7 @@
   "name": "we2-tas",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "TAS",
   "author": "MMasterZ <soulhunz@hotmail.com>",
   "private": true,
   "scripts": {

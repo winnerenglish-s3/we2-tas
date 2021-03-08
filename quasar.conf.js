@@ -33,7 +33,7 @@ module.exports = configure(function (/* ctx */) {
     extras: [
       // 'ionicons-v4',
       // 'mdi-v5',
-      // 'fontawesome-v5',
+      'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
       // 'line-awesome',
@@ -116,8 +116,8 @@ module.exports = configure(function (/* ctx */) {
       },
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
+        name: `TAS`,
+        short_name: `TAS`,
         description: `A Quasar Framework app`,
         display: 'standalone',
         orientation: 'portrait',

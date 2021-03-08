@@ -2,7 +2,7 @@
   <div
     :class="sceen >= 1200 ? 'row ' : 'relative-position q-pa-md'"
     align="center"
-    :style="sceen >= 1200 ? 'height:100vh' : ''"
+    :style="sceen >= 1200 ? 'height:100vh ;min-width:1200px' : ''"
   >
     <div
       v-if="sceen >= 1200"

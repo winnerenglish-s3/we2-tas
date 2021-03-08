@@ -1,4 +1,17 @@
 // app global css in SCSS form
+.z16 {
+  font-size: calc(16px);
+}
+
+.z20 {
+  font-size: calc(20px);
+}
+
+.z24 {
+  font-size: calc(24px);
+}
+
+// color
 .brx {
   border: 1px solid red;
 }
@@ -17,4 +30,12 @@
 
 .greenbg {
   background: #209F85;
+}
+
+.seagreencl {
+  color: #B7DDCD;
+}
+
+.seagreenbg {
+  background: #B7DDCD;
 }
