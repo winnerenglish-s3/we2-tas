@@ -1,17 +1,17 @@
 <template>
   <div
-    :class="sceen >= 1200 ? 'row ' : 'relative-position q-pa-md'"
+    :class="screen >= 1200 ? 'row ' : 'relative-position q-pa-md'"
     align="center"
-    :style="sceen >= 1200 ? 'height:100vh ;min-width:1200px' : ''"
+    :style="screen >= 1200 ? 'height:100vh ;min-width:1200px' : ''"
   >
     <div
-      v-if="sceen >= 1200"
-      :class="sceen >= 1200 ? 'col-6 relative-position' : ''"
+      v-if="screen >= 1200"
+      :class="screen >= 1200 ? 'col-6 relative-position' : ''"
       style="background: #a3d7cc"
     >
       <div
         style="width: 100%"
-        :class="sceen >= 1200 ? ' absolute-center ' : ''"
+        :class="screen >= 1200 ? ' absolute-center ' : ''"
       >
         <div
           style="width: 80%; color: #505050; height: 200px"
@@ -29,17 +29,17 @@
       </div>
     </div>
     <div
-      :class="sceen >= 1200 ? 'col-6 relative-position' : 'fixed-center '"
-      :style="sceen >= 1200 ? '' : 'width: 100%; max-width: 360px'"
+      :class="screen >= 1200 ? 'col-6 relative-position' : 'fixed-center '"
+      :style="screen >= 1200 ? '' : 'width: 100%; max-width: 360px'"
     >
       <div
-        :class="sceen >= 1200 ? ' absolute-center ' : ''"
+        :class="screen >= 1200 ? ' absolute-center ' : ''"
         style="width: 100%"
       >
         <div class="q-py-md">
           <img style="max-width: 120px" src="../../public/favicon.png" />
         </div>
-        <div v-if="sceen < 1200" class="q-pb-lg" style="color: #505050">
+        <div v-if="screen < 1200" class="q-pb-lg" style="color: #505050">
           <b>Teacher Assistant System</b>
           <div>ระบบผู้ช่วยครูอัจฉริยะ</div>
         </div>
@@ -133,7 +133,7 @@ export default {
       isErrorPassword,
       user,
       password,
-      sceen: screen.width,
+      screen: screen.width,
     };
   },
 };

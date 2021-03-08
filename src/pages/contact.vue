@@ -1,27 +1,29 @@
 <template>
   <q-page>
-    <div align="center" :class="sceen >= 1200 ? 'q-pa-md' : 'q-px-md'">
+    <div align="center" :class="screen >= 1200 ? 'q-pa-md' : 'q-px-md'">
       <div
         :style="
-          sceen >= 1200
+          screen >= 1200
             ? '  width: 80%;min-width: 800px;border-radius: 10px;'
             : ''
         "
         style="color: #505050"
-        :class="sceen >= 1200 ? 'shadow-5 row' : 'text-left row justify-center'"
+        :class="
+          screen >= 1200 ? 'shadow-5 row' : 'text-left row justify-center'
+        "
       >
         <div
           :style="
-            sceen >= 1200
+            screen >= 1200
               ? 'border-top-left-radius: 10px; border-bottom-left-radius: 10px'
               : 'max-width:500px;width:100%'
           "
-          :class="sceen >= 1200 ? 'col-6 q-pa-md text-left seagreenbg' : ''"
+          :class="screen >= 1200 ? 'col-6 q-pa-md text-left seagreenbg' : ''"
         >
           <div
             v-if="status != 'online'"
             class="z20"
-            :class="sceen >= 1200 ? ' q-pb-xl' : 'text-center q-pt-lg'"
+            :class="screen >= 1200 ? ' q-pb-xl' : 'text-center q-pt-lg'"
           >
             ติดต่อทีมงาน
           </div>
@@ -35,8 +37,8 @@
               />
             </div>
             <div class="col">
-              <div class="z20">ที่อยู่บริษัท</div>
-              <div class="z16">
+              <div :class="screen >= 1200 ? 'z20' : 'z16'">ที่อยู่บริษัท</div>
+              <div :class="screen >= 1200 ? 'z16' : ''">
                 <div>1673/26 อาคารวิทยุคอมเพล็กซ์</div>
                 <div>ถนนเพชรบุรีตัดใหม่ แขวงมักกะสัน</div>
                 <div>เขตราชเทวี กรุงเทพฯ 10400</div>
@@ -52,8 +54,8 @@
               />
             </div>
             <div>
-              <div class="z20">โทรศัพท์</div>
-              <div class="z16">
+              <div :class="screen >= 1200 ? 'z20' : 'z16'">โทรศัพท์</div>
+              <div :class="screen >= 1200 ? 'z16' : ''">
                 <div>02-252-2489</div>
               </div>
             </div>
@@ -63,15 +65,15 @@
               <q-icon size="20px" style="color: #505050" name="fab fa-line" />
             </div>
             <div>
-              <div class="z20">โซเชียลมีเดีย</div>
-              <div class="z16">@Winner_QA</div>
+              <div :class="screen >= 1200 ? 'z20' : 'z16'">โซเชียลมีเดีย</div>
+              <div :class="screen >= 1200 ? 'z16' : ''">@Winner_QA</div>
             </div>
           </div>
           <div
             v-if="status != 'online'"
-            :style="sceen >= 1200 ? 'margin-top: -135px' : ''"
+            :style="screen >= 1200 ? 'margin-top: -135px' : ''"
             style=""
-            :class="sceen >= 1200 ? 'text-right q-pr-md' : 'text-center'"
+            :class="screen >= 1200 ? 'text-right q-pr-md' : 'text-center'"
           >
             <img
               style="max-width: 180px; width: 100%"
@@ -79,7 +81,7 @@
             />
             <div
               style="font-size: 10px"
-              :class="sceen >= 1200 ? 'q-mr-md q-pr-xs' : 'text-center'"
+              :class="screen >= 1200 ? 'q-mr-md q-pr-xs' : 'text-center'"
             >
               เพิ่มเพื่อนใน LINE ด้วยคิวอาร์โค้ด
             </div>
@@ -92,7 +94,7 @@
             />
           </div>
         </div>
-        <div v-if="sceen >= 1200" class="col-6 relative-position">
+        <div v-if="screen >= 1200" class="col-6 relative-position">
           <img
             class="q-pa-md absolute-center"
             style="max-width: 500px; width: 80%"
@@ -111,7 +113,7 @@ export default {
     const status = ref("5");
     return {
       status,
-      sceen: screen.width,
+      screen: screen.width,
     };
   },
 };

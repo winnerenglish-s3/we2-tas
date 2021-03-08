@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lff">
     <q-header class="greenbg">
       <q-toolbar>
         <q-btn
@@ -17,11 +17,34 @@
           ></q-toolbar-title
         >
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="row">
+          <div class="q-mx-xs">
+            <q-btn dense round flat icon="fas fa-bell">
+              <q-badge
+                class="q-mt-sm q-mr-xs"
+                rounded
+                style="width: 13px; height: 13px"
+                color="red"
+                floating
+              >
+              </q-badge>
+            </q-btn>
+          </div>
+          <div class="q-mx-xs">
+            <q-btn dense round flat icon="fas fa-sign-out-alt"> </q-btn>
+          </div>
+        </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
+    <q-drawer
+      v-model="leftDrawerOpen"
+      :width="screen >= 1200 ? 360 : screen"
+      :breakpoint="500"
+      show-if-above
+      bordered
+      class="bg-grey-1"
+    >
       <q-list>
         <q-item-label header class="text-grey-8">
           Essential Links
@@ -102,6 +125,7 @@ export default defineComponent({
     const leftDrawerOpen = ref(false);
 
     return {
+      screen: screen.width,
       essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer() {
