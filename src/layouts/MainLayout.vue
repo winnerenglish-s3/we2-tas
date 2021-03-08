@@ -37,24 +37,16 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      :width="screen >= 1200 ? 360 : screen"
-      :breakpoint="500"
-      show-if-above
-      bordered
-      class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-grey-1">
       <q-list>
-        <q-item-label header class="text-grey-8">
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <template v-for="(menuItem, index) in essentialLinks">
+          <q-item :class="menuItem.position" clickable v-ripple>
+            <q-item-section>
+              <span>{{ menuItem.title }}</span>
+            </q-item-section>
+          </q-item>
+          <q-separator :key="'sep' + index" v-if="menuItem.separator" />
+        </template>
       </q-list>
     </q-drawer>
 
@@ -69,46 +61,48 @@ import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
+    type: 1,
+    title: "ควบคุมการเรียน",
+    separator: true,
+    size: "22px",
   },
   {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
+    type: 2,
+    title: "แผนการสอน",
+    separator: true,
+    size: "22px",
+  },
+
+  {
+    type: 3,
+    title: "รายชื่อนักเรียน",
+    separator: true,
+    size: "22px",
+  },
+
+  {
+    type: 4,
+    title: "ข้อสอบ",
+    separator: true,
+    size: "22px",
   },
   {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
+    type: 5,
+    title: "เนื้อหา",
+    separator: true,
+    size: "22px",
   },
   {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
+    type: 6,
+    title: "ใบงาน",
+    separator: true,
+    size: "22px",
   },
   {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
+    type: 7,
+    title: "ติดต่อทีมงาน",
+    separator: true,
+    size: "22px",
   },
 ];
 
