@@ -26,12 +26,25 @@
       </div>
       <div class="row items-center justify-end q-px-md">
         <q-btn
-          v-if="screen > 1024"
           round
+          icon="fas fa-ellipsis-v"
+          v-if="screen > 1024"
           flat
           class="greencl"
-          icon="fas fa-ellipsis-v"
-        />
+        >
+          <q-menu>
+            <q-list>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label
+                    ><q-icon name="fas fa-print" class="q-py-sm q-pr-sm" />
+                    ตัวอย่างการพิมพ์</q-item-label
+                  >
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
       </div>
     </div>
 
