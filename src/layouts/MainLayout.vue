@@ -53,7 +53,14 @@
             </q-btn>
           </div>
           <div v-if="screen >= 1200 || drawer" class="q-mx-xs">
-            <q-btn dense round flat icon="fas fa-sign-out-alt"> </q-btn>
+            <q-btn
+              @click="$router.push('/')"
+              dense
+              round
+              flat
+              icon="fas fa-sign-out-alt"
+            >
+            </q-btn>
           </div>
           <div v-if="screen < 1200 && !drawer">
             {{ level.label }} | {{ unit.label }}
