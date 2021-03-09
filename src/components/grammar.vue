@@ -38,6 +38,7 @@
     <!-- เนื้อหา -->
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <q-separator
+        v-if="screen <= 1024"
         style="max-width: 600px"
         :style="screen > 1024 ? '' : 'height:4px'"
         color="grey-2"
