@@ -37,14 +37,20 @@
 
     <!-- เนื้อหา -->
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
+      <q-separator
+        style="max-width: 600px"
+        :style="screen > 1024 ? '' : 'height:4px'"
+        color="grey-2"
+      />
       <div
+        v-if="dataAll == 'new' || dataAll == 'all'"
         :class="screen > 1024 ? '' : 'q-pa-md'"
         class="text-left"
         style="max-width: 500px; width: 100%"
       >
         <div class="z16 row justify-between">
           <div>หน้าปก</div>
-          <div>(1/1)</div>
+          <div>(1/2)</div>
         </div>
         <span
           class="z9 q-px-sm text-white"
@@ -52,7 +58,8 @@
           >NEW</span
         >
       </div>
-      <div class="q-py-sm">
+
+      <div v-if="dataAll == 'new' || dataAll == 'all'" class="q-py-sm">
         <q-img
           style="max-width: 500px; width: 100%; height: 250px"
           src="https://placeimg.com/500/300/nature"
@@ -64,7 +71,18 @@
         class="q-my-md"
         color="grey-2"
       />
-      <div class="q-py-sm">
+      <div
+        v-if="dataAll == 'all'"
+        :class="screen > 1024 ? '' : 'q-px-md'"
+        class="text-left"
+        style="max-width: 500px; width: 100%"
+      >
+        <div class="z16 row justify-between">
+          <div>Noun หรือ คำนาม (เรียกแทนคน)</div>
+          <div>(2/2)</div>
+        </div>
+      </div>
+      <div v-if="dataAll == 'all'" class="q-py-sm">
         <q-img
           style="max-width: 500px; width: 100%; height: 250px"
           src="https://placeimg.com/500/300/nature"

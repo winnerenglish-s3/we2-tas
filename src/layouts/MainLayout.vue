@@ -21,10 +21,17 @@
           @click="closebreakpoint = false"
         />
         <q-toolbar-title>
-          <span v-if="$route.name == 'contact'" class="z14"
-            >ติดต่อทีมงาน</span
-          ></q-toolbar-title
-        >
+          <span v-if="$route.name == 'contact'" class="z14">ติดต่อทีมงาน</span>
+          <span v-if="$route.name == 'material'" class="z14">
+            <span v-if="$route.params.type == '1'">คำศัพท์</span>
+            <span v-if="$route.params.type == '2'">ไวยกรณ์</span>
+            <span v-if="$route.params.type == '3'">การอ่าน</span>
+            <span v-if="$route.params.type == '4'">การเขียน</span>
+            <span v-if="$route.params.type == '5'">การออกเสียง</span>
+            <span v-if="$route.params.type == '6'">เคล็ดลับภาษา</span>
+            <span v-if="$route.params.type == '7'">การพูดและฟัง</span>
+          </span>
+        </q-toolbar-title>
 
         <div class="row">
           <div class="q-mx-xs">

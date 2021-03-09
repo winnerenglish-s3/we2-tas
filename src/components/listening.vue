@@ -51,42 +51,42 @@ export default {
       {
         sentenceEng: "What is this?",
         sentenceTh: "นี้คืออะไรคะ",
-        user: "Girl",
+        user: "Girl:",
       },
       {
         sentenceEng: "This is a cat.",
         sentenceTh: "นี้คือแมวจ้ะ",
-        user: "Woman",
+        user: "Woman:",
       },
       {
         sentenceEng: "It is a white cat.",
         sentenceTh: "มันคือแมวสีขาว",
-        user: "Woman",
+        user: "Woman:",
       },
       {
         sentenceEng: "What is that?",
         sentenceTh: "นั้นคืออะไรคะ",
-        user: "Girl",
+        user: "Girl:",
       },
       {
         sentenceEng: "It is a white cat.",
         sentenceTh: "มันคือแมวสีขาว",
-        user: "Woman",
+        user: "Woman:",
       },
       {
         sentenceEng: "It is a white cat.",
         sentenceTh: "มันคือแมวสีขาว",
-        user: "Woman",
+        user: "Woman:",
       },
       {
         sentenceEng: "It is a white cat.",
         sentenceTh: "มันคือแมวสีขาว",
-        user: "Woman",
+        user: "Woman:",
       },
       {
         sentenceEng: "It is a white cat.",
         sentenceTh: "มันคือแมวสีขาว",
-        user: "Woman",
+        user: "Woman:",
       },
     ];
     return {

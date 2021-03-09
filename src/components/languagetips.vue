@@ -7,7 +7,7 @@
     >
       <q-btn round flat class="greencl" icon="fas fa-ellipsis-v" />
     </div>
-    <div v-else class="q-py-md text-center">Language Tips</div>
+    <div v-else class="q-py-md text-center z16">Language Tips</div>
     <!-- เนื้อหา -->
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div class="text-left" style="max-width: 500px; width: 100%">
@@ -22,8 +22,7 @@
           />
         </div>
       </div>
-
-      <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" />
+      <!-- <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" /> -->
     </div>
   </div>
 </template>

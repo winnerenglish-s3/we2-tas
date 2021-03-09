@@ -22,7 +22,7 @@
           />
         </div>
       </div>
-      <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" />
+      <!-- <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" /> -->
     </div>
   </div>
 </template>
