@@ -5,7 +5,7 @@
       class="mintbg row items-cente row items-center"
       style="height: 50px"
     >
-      <div v-if="screen <= 1024">Animals</div>
+      <div class="z16" v-if="screen <= 1024">Animals</div>
       <q-btn
         round
         icon="fas fa-ellipsis-v"
@@ -35,9 +35,12 @@
             src="https://placeimg.com/500/300/nature"
           />
         </div>
-        <div class="q-px-md q-pt-sm col">
+        <div
+          :class="screen > 1024 ? 'z16 q-pt-xs' : 'q-pt-sm'"
+          class="q-px-md col"
+        >
           <div>{{ item.vocab }} {{ item.partOfSpeech }}</div>
-          <div>{{ item.reading }}</div>
+          <div style="color: #616161">{{ item.reading }}</div>
           <div>{{ item.meaning }}</div>
         </div>
         <div class="q-pa-md">

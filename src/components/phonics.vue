@@ -31,8 +31,8 @@
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div class="text-left" style="max-width: 500px; width: 100%">
         <div class="z16 row justify-between">
-          <div>เสียงคำขึ้นต้น b #1</div>
-          <div>(1/1)</div>
+          <div :class="screen > 1024 ? 'z16' : ''">เสียงคำขึ้นต้น b #1</div>
+          <div :class="screen > 1024 ? 'z16' : ''">(1/1)</div>
         </div>
         <div class="q-py-sm">
           <q-img

@@ -27,23 +27,36 @@
       </q-btn>
     </div>
     <!-- เนื้อหา -->
-    <div align="center" class="q-pa-md">
+    <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div style="max-width: 500px; width: 100%">
-        <div class="z16">My Pets</div>
-        <div class="text-left q-py-md">
-          <div>
+        <div :class="screen > 1024 ? '' : 'q-py-md'" class="z16">My Pets</div>
+        <div class="text-left">
+          <div class="q-py-md" v-if="screen > 1024">
             Kitty and Spot are my pets. Kitty is a cat. Spot is a dog. Kitty and
             Spot are smart animals. Kitty and Spot are smart animals.
           </div>
-          <div class="q-py-sm">
-            <div class="q-py-sm" v-for="(item, index) in data" :key="item.id">
-              <div class="row">
-                <span> ประโยคที่ {{ index + 1 }} :</span>
+          <div>
+            <q-separator v-if="screen <= 1024" color="grey-2" />
+            <div v-for="(item, index) in data" :key="item.id">
+              <div
+                class="row"
+                :class="screen > 1024 ? 'q-py-sm' : 'q-px-md q-py-md'"
+              >
+                <span v-if="screen > 1024"> ประโยคที่ {{ index + 1 }} :</span>
+                <span v-else>{{ index + 1 }}</span>
                 <div class="q-px-md">
-                  <div>{{ item.sentenceEng }}</div>
-                  <div>{{ item.sentenceTh }}</div>
+                  <div :class="screen > 1024 ? 'z16' : ''">
+                    {{ item.sentenceEng }}
+                  </div>
+                  <div
+                    :class="screen > 1024 ? '' : 'z12'"
+                    style="color: #616161"
+                  >
+                    {{ item.sentenceTh }}
+                  </div>
                 </div>
               </div>
+              <q-separator v-if="screen <= 1024" color="grey-2" />
             </div>
           </div>
         </div>
