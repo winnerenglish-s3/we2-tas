@@ -1,10 +1,18 @@
 <template>
-  <div>
+  <div :style="screen >= 1200 ? '' : 'min-width: 320px'">
     <div
-      class="mintbg row items-center justify-end q-px-md"
+      :class="screen > 1024 ? 'justify-end q-px-md' : 'justify-center'"
+      class="mintbg row items-cente row items-center"
       style="height: 50px"
     >
-      <q-btn round flat class="greencl" icon="fas fa-ellipsis-v" />
+      <div v-if="screen <= 1024">Animals</div>
+      <q-btn
+        v-if="screen > 1024"
+        round
+        flat
+        class="greencl"
+        icon="fas fa-ellipsis-v"
+      />
     </div>
     <div v-for="item in dataList" :key="item.id">
       <div class="row">
@@ -54,6 +62,7 @@ export default {
     ];
     return {
       dataList,
+      screen: screen.width,
     };
   },
 };

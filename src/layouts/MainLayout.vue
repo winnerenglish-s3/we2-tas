@@ -3,6 +3,7 @@
     <q-header class="greenbg">
       <q-toolbar>
         <q-btn
+          v-if="screen >= 1200 || drawer"
           flat
           dense
           round
@@ -10,7 +11,15 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-
+        <q-btn
+          v-if="screen < 1200 && !drawer"
+          flat
+          dense
+          round
+          icon="fas fa-arrow-left"
+          aria-label="Menu"
+          @click="closebreakpoint = false"
+        />
         <q-toolbar-title>
           <span v-if="$route.name == 'contact'" class="z14"
             >ติดต่อทีมงาน</span
@@ -36,8 +45,11 @@
               </q-badge>
             </q-btn>
           </div>
-          <div class="q-mx-xs">
+          <div v-if="screen >= 1200 || drawer" class="q-mx-xs">
             <q-btn dense round flat icon="fas fa-sign-out-alt"> </q-btn>
+          </div>
+          <div v-if="screen < 1200 && !drawer">
+            {{ level.label }} | {{ unit.label }}
           </div>
         </div>
       </q-toolbar>
@@ -75,8 +87,8 @@
         show-if-above
         bordered
         class="bg-white"
-        :width="360"
-        :breakpoint="500"
+        :width="screen > 1024 ? 360 : screen"
+        :breakpoint="closebreakpoint || screen > 1024 ? 1024 : ''"
       >
         <q-scroll-area class="fit">
           <div class="q-pa-md row">
@@ -270,6 +282,7 @@ export default defineComponent({
   setup() {
     const leftDrawerOpen = ref(false);
     const drawer = ref(false);
+    const closebreakpoint = ref(false);
     const level = ref(levelOptions[0]);
     const unit = ref(unitOptions[0]);
     return {
@@ -277,8 +290,9 @@ export default defineComponent({
       levelOptions,
       unit,
       unitOptions,
+      closebreakpoint,
       //-------------------------
-      screen: screen.width,
+      screen: screen.availWidth,
       drawer,
       essentialLinks: linksList,
       menuInside: dataList,
@@ -303,6 +317,7 @@ export default defineComponent({
         val == 7 ? this.$router.push("/contact") : "";
       },
       gotoMaterial(val) {
+        this.closebreakpoint = true;
         this.$router.push({
           name: "material",
           params: {

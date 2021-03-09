@@ -12,6 +12,8 @@
     <phonics v-if="$route.params.type == '5'" :type="6" />
     <!-- languagetips -->
     <languagetips v-if="$route.params.type == '6'" :type="6" />
+    <!-- languagetips -->
+    <listening v-if="$route.params.type == '7'" :type="7" />
   </q-page>
 </template>
 
@@ -24,7 +26,7 @@ import reading from "../components/reading.vue";
 import writing from "../components/writing.vue";
 import phonics from "../components/phonics.vue";
 import languagetips from "../components/languagetips.vue";
-
+import listening from "../components/listening.vue";
 const routes = [
   {
     path: "/material",
@@ -44,6 +46,7 @@ export default {
     writing,
     phonics,
     languagetips,
+    listening,
   },
   setup() {
     const type = ref(1);

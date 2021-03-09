@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div :style="screen >= 1200 ? '' : 'min-width: 320px'">
     <div
+      v-if="screen > 1024"
       class="mintbg row items-center justify-end q-px-md"
       style="height: 50px"
     >
@@ -17,14 +18,14 @@
           src="https://placeimg.com/500/300/nature"
         />
       </div>
-      <div style="max-width: 500px; width: 100%">
-        <div class="q-px-lg text-left">
+      <div>
+        <div style="max-width: 500px; width: 100%" class="q-px-lg text-left">
           This is Kitty. Kitty is a cat. It is white. It is on a mat. The mat is
           black. Kitty likes the black mat.
         </div>
-        <q-separator class="q-my-md" color="grey-2" />
+        <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" />
         <div class="z16">แมวคิตตี้</div>
-        <div class="q-px-lg text-left">
+        <div style="max-width: 500px; width: 100%" class="q-px-lg text-left">
           นี่คือคิตตี้ คิตตี้เป็นแมวตัวหนึ่ง มันเป็นสีขาว มันอยู่บนเสื่อผืนหนึ่ง
           เสื่อนั้นเป็นสีดำ คิตตี้ชอบเสื่อสีดำผืนนั้น
         </div>
@@ -36,7 +37,9 @@
 <script>
 export default {
   setup() {
-    return {};
+    return {
+      screen: screen.width,
+    };
   },
 };
 </script>
