@@ -96,6 +96,7 @@
         </div>
         <div class="q-py-sm q-px-md">
           <q-btn
+            @click="$router.push('/main')"
             class="greenbg text-white"
             label="เข้าสู่ระบบ"
             style="
