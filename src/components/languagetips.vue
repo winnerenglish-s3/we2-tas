@@ -9,7 +9,7 @@
     </div>
     <div v-else class="q-py-md text-center">Language Tips</div>
     <!-- เนื้อหา -->
-    <div align="center" :class="screen > 1024 ? 'q-px-md' : ''">
+    <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div class="text-left" style="max-width: 500px; width: 100%">
         <div class="z16 row justify-between">
           <div>Language Tips</div>

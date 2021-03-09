@@ -12,7 +12,7 @@
       <div style="max-width: 500px; width: 100%">
         <div class="z16">Kitty the cat</div>
       </div>
-      <div class="q-py-sm">
+      <div class="q-py-md">
         <q-img
           style="max-width: 335px; width: 100%; height: 130px"
           src="https://placeimg.com/500/300/nature"
