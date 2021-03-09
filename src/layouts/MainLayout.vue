@@ -91,7 +91,7 @@
         :breakpoint="closebreakpoint || screen > 1024 ? 1024 : ''"
       >
         <q-scroll-area class="fit">
-          <div class="q-pa-md row">
+          <div class="q-py-md q-px-sm row">
             <div class="q-px-sm col-6">
               <q-select
                 style="border-radius: 8px"
