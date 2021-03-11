@@ -3,7 +3,14 @@
     <q-header class="greenbg">
       <q-toolbar>
         <q-btn
-          v-if="screen >= 1200 || drawer"
+          v-if="
+            screen >= 1200 ||
+            drawer ||
+            $route.name == 'main' ||
+            $route.name == 'lesson' ||
+            $route.name == 'student' ||
+            $route.name == 'exam'
+          "
           flat
           dense
           round
@@ -12,7 +19,14 @@
           @click="toggleLeftDrawer"
         />
         <q-btn
-          v-if="screen < 1200 && !drawer"
+          v-if="
+            screen < 1200 &&
+            !drawer &&
+            $route.name != 'main' &&
+            $route.name != 'lesson' &&
+            $route.name != 'student' &&
+            $route.name != 'exam'
+          "
           flat
           dense
           round
@@ -90,7 +104,7 @@
       </q-list>
     </q-drawer>
     <q-layout
-      v-if="$route.name == 'material'"
+      v-if="$route.name == 'material' || $route.name == 'worksheet'"
       view="hHh Lpr lff"
       container
       style="height: 100vh"
@@ -129,10 +143,14 @@
             </div>
           </div>
           <q-separator color="grey-2" />
-          <template v-for="(menuItem, index) in menuInside">
+          <!-- เนื้อหา -->
+          <template
+            v-if="$route.name == 'material'"
+            v-for="(menuItem, index) in menuInside"
+          >
             <q-item
-              @click="gotoMaterial(menuItem.type)"
-              :class="menuItem.position"
+              :class="isCheckTab == index || menuItem.position ? 'mintbg' : ''"
+              @click="gotoMaterial(menuItem.type), isCheck(index)"
               clickable
               v-ripple
             >
@@ -155,13 +173,202 @@
               v-if="menuItem.separator"
             />
           </template>
+          <!-- ใบงาน -->
+          <template v-else v-for="(menuItem, index) in menuInside">
+            <q-list style="width: 100%">
+              <q-expansion-item
+                @click="isCheck(index, skill[index])"
+                :header-class="isCheckTab == index ? 'mintbg' : ''"
+                group="somegroup"
+                :default-opened="index == 0"
+                class="z16"
+                expand-separator
+                :label="menuItem.name"
+                :caption="menuItem.title"
+              >
+                <q-separator
+                  color="grey-2"
+                  :key="'sep' + index"
+                  v-if="menuItem.separator"
+                />
+                <div>
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'listening' && skill[index] != 'grammar'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(1, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '1' ? 'color:#209F85;' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                      >
+                        <span>เนื้อหา</span>
+                      </span></q-btn
+                    >
+                  </div>
+                  <!-- grammar -->
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'listening' && skill[index] == 'grammar'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(6, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '6' ? 'color:#209F85;' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                      >
+                        <span>เนื้อหา 1</span>
+                      </span></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'listening' && skill[index] == 'grammar'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(7, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '7' ? 'color:#209F85;' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                      >
+                        <span>เนื้อหา 2</span>
+                      </span></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'reading' &&
+                        skill[index] != 'listening' &&
+                        skill[index] != 'grammar' &&
+                        skill[index] != 'writing' &&
+                        skill[index] != 'phonics' &&
+                        skill[index] != 'languagetips'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(2, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '2' ? 'color:#209F85' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                        >คัดลายมือ</span
+                      ></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'reading' &&
+                        skill[index] != 'listening' &&
+                        skill[index] != 'grammar' &&
+                        skill[index] != 'writing' &&
+                        skill[index] != 'phonics' &&
+                        skill[index] != 'languagetips'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(3, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '3' ? 'color:#209F85' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                        >แบบฝึกหัด สะกดคำ</span
+                      ></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="
+                        skill[index] != 'listening' && skill[index] != 'grammar'
+                      "
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(4, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '4' ? 'color:#209F85' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                        >แบบฝึกหัด เลือกคำตอบ</span
+                      ></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="skill[index] == 'listening'"
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="gotoWorksheet(5, skill[index])"
+                      ><span
+                        :style="
+                          $route.params.type == '5' ? 'color:#209F85' : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                        >แบบฝึกหัด แปลประโยค</span
+                      ></q-btn
+                    >
+                  </div>
+                </div>
+              </q-expansion-item>
+            </q-list>
+            <q-separator
+              color="grey-2"
+              :key="'sep' + index"
+              v-if="menuItem.separator"
+            />
+          </template>
         </q-scroll-area>
       </q-drawer>
       <q-page-container>
         <router-view />
       </q-page-container>
     </q-layout>
-    <q-page-container v-if="$route.name != 'material'">
+    <q-page-container
+      v-if="$route.name != 'material' && $route.name != 'worksheet'"
+    >
       <router-view />
     </q-page-container>
   </q-layout>
@@ -169,6 +376,7 @@
 
 <script>
 import EssentialLink from "components/EssentialLink.vue";
+import readingVue from "src/components/reading.vue";
 
 const linksList = [
   {
@@ -287,7 +495,8 @@ const unitOptions = [
   { label: "บทที่ 2", value: 2 },
   { label: "บทที่ 3", value: 3 },
 ];
-import { defineComponent, ref } from "vue";
+
+import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent({
   name: "MainLayout",
@@ -297,15 +506,29 @@ export default defineComponent({
   },
 
   setup() {
+    const isCheckTab = ref(0);
     const leftDrawerOpen = ref(false);
     const drawer = ref(false);
     const closebreakpoint = ref(false);
     const level = ref(levelOptions[0]);
     const unit = ref(unitOptions[0]);
+    const skill = [
+      "vocab",
+      "grammar",
+      "reading",
+      "writing",
+      "phonics",
+      "languagetips",
+      "listening",
+    ];
+    onMounted(() => {});
     return {
+      isCheckTab,
       level,
+      onMounted,
       levelOptions,
       unit,
+      skill,
       unitOptions,
       closebreakpoint,
       //-------------------------
@@ -318,6 +541,7 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
       goto(val) {
+        isCheckTab.value = false;
         val == 1 ? this.$router.push("/main") : "";
         val == 2 ? this.$router.push("/lesson") : "";
         val == 3 ? this.$router.push("/student") : "";
@@ -330,7 +554,14 @@ export default defineComponent({
               },
             })
           : "";
-        val == 6 ? this.$router.push("/worksheet") : "";
+        val == 6
+          ? this.$router.push({
+              name: "worksheet",
+              params: {
+                type: 1,
+              },
+            })
+          : "";
         val == 7 ? this.$router.push("/contact") : "";
       },
       gotoMaterial(val) {
@@ -341,6 +572,36 @@ export default defineComponent({
             type: val,
           },
         });
+      },
+      gotoWorksheet(val, skill) {
+        this.closebreakpoint = true;
+        this.$router.push({
+          name: "worksheet",
+          params: {
+            type: val,
+            skill: skill,
+          },
+        });
+      },
+      isCheck(val, skill) {
+        if (this.$route.name == "worksheet") {
+          let tempe = "";
+          if (skill == "grammar") {
+            tempe = 6;
+          } else if (skill == "listening") {
+            tempe = 5;
+          } else {
+            tempe = 1;
+          }
+          this.$router.push({
+            name: "worksheet",
+            params: {
+              skill: skill,
+              type: tempe,
+            },
+          });
+        }
+        isCheckTab.value = val;
       },
     };
   },

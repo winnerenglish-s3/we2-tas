@@ -53,7 +53,6 @@ export default {
     const isDelete = ref(false);
     function statusDelete() {}
     onMounted(() => {
-      console.log(routes);
       // router.currentRoute = {
       //   name: "material",
       //   params: {
