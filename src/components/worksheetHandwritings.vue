@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>

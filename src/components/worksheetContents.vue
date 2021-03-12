@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -142,7 +142,7 @@
                 class="q-my-md"
                 color="grey-2"
               />
-              <div class="text-left" style="max-width: 500px; width: 100%">
+              <div class="text-left" style="max-width: 500px; width: 80%">
                 <div class="row justify-between">
                   <div>Noun หรือ คำนาม (เรียกแทนคน)</div>
                   <div>(2/2)</div>
@@ -150,7 +150,7 @@
               </div>
               <div class="q-py-sm">
                 <q-img
-                  style="max-width: 500px; width: 100%; height: 250px"
+                  style="max-width: 500px; width: 80%; height: 250px"
                   src="https://placeimg.com/500/300/nature"
                 />
               </div>

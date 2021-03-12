@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -64,23 +64,31 @@
                 Arrange given alphabets to form the correct translation.
               </div>
               <div>เรียงตัวอักษรภาษาอังกฤษให้เป็นคำแปลที่ถูกต้อง</div>
-              {{ dataList }}
+
               <div v-for="(item, index) in dataList" :key="item.id">
                 <div class="q-py-sm">
                   <div>{{ index + 1 }}. {{ item.name }}</div>
-
                   <div class="row">
-                    {{ item.word.split("").push(item.data) }}
                     <div
-                      style="
-                        border-radius: 8px;
-                        border: 1px solid black;
-                        background: #d2d2d2;
+                      :style="
+                        screen > 1024
+                          ? 'border-radius: 8px;margin:2px'
+                          : 'border-radius: 3px;margin:2px'
                       "
-                      class="row q-ma-xs"
-                      v-for="x in item"
+                      style="border: 1px solid black; background: #d2d2d2"
+                      class="row"
+                      v-for="x in item.splitWord"
                     >
-                      <div class="q-pb-xs q-px-md z24">{{ x }}</div>
+                      <div
+                        :class="
+                          screen > 1024
+                            ? 'q-pb-xs q-px-md z24'
+                            : 'q-pb-xs q-px-sm z8'
+                        "
+                        class=""
+                      >
+                        {{ x.toUpperCase() }}
+                      </div>
                     </div>
                   </div>
                   <div
@@ -97,6 +105,9 @@
         </div>
       </div>
     </div>
+    <div>
+      <q-separator v-if="screen <= 1024" style="height: 10px" class="q-my-sm" />
+    </div>
     <div :class="screen > 1024 ? 'q-px-md q-pb-md' : 'q-pt-md'">
       <div
         :class="screen > 1024 ? 'q-pa-md shadow-5' : 'q-px-sm'"
@@ -109,7 +120,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -136,34 +147,17 @@
             v-if="$route.params.skill == 'vocab'"
             class="q-pa-sm q-pt-md col-12"
           >
-            <div :class="screen > 1024 ? '' : 'z8'" style="margin-left: 42px">
+            <div
+              align="center"
+              :class="screen > 1024 ? '' : 'z8'"
+              style="margin-left: 42px"
+            >
+              <div>เฉลย</div>
               <div>
-                Arrange given alphabets to form the correct translation.
-              </div>
-              <div>เรียงตัวอักษรภาษาอังกฤษให้เป็นคำแปลที่ถูกต้อง</div>
-              <div v-for="(item, index) in dataList" :key="item.id">
-                <div class="q-py-sm">
-                  <div>{{ index + 1 }}. {{ item.name }}</div>
-
-                  <div class="row">
-                    <div
-                      style="
-                        border-radius: 8px;
-                        border: 1px solid black;
-                        background: #d2d2d2;
-                      "
-                      class="row q-ma-xs"
-                      v-for="x in item.word"
-                    >
-                      <div class="q-pb-xs q-px-md z24">{{ x }}</div>
-                    </div>
-                  </div>
-                  <div
-                    class="q-pt-sm"
-                    style="white-space: nowrap; overflow: hidden"
-                  >
-                    <u class="q-pr-sm">ตอบ</u>
-                    ______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+                <div v-for="(item, index) in dataList" :key="item.id">
+                  <div class="text-left q-py-sm">
+                    <div>{{ index + 1 }}. {{ item.name }}</div>
+                    <div class="q-px-md">{{ item.word.toUpperCase() }}</div>
                   </div>
                 </div>
               </div>
@@ -182,23 +176,34 @@ export default {
     const dataList = [
       {
         name: "ซอสมะเขือเทศ",
-        word: "kcuethp",
+        word: "ketchup",
       },
       {
         name: "ซอสมะเขือเทศ",
-        word: "kcuethp",
+        word: "ketchup",
       },
       {
         name: "ขนมแพนเค้ก",
-        word: "apaknec",
+        word: "pancake",
       },
       {
         name: "ขนมแพนเค้ก",
-        word: "apaknec",
+        word: "pancake",
       },
     ];
+    dataList.forEach((x) => {
+      let splitWord = x.word.split("");
+      var randomWord = splitWord.sort(() => Math.random() - 0.5);
+      x.splitWord = randomWord;
+    });
+
+    onMounted(() => {
+      // loadData();
+    });
+
     return {
       dataList,
+      // loadData,
       screen: screen.width,
     };
   },
