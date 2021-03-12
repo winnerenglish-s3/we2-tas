@@ -34,14 +34,7 @@
           </div>
           <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
-              <div class="col">
-                บทที่ 1 |
-                <span v-if="$route.params.skill == 'vocab'">คำศัพท์</span>
-                <span v-else-if="$route.params.skill == 'grammar'"
-                  >ไวยากรณ์</span
-                >
-                <span v-else>การอ่าน</span>
-              </div>
+              <div class="col">บทที่ 1 | การเขียน</div>
               <div>ป.3 | ระดับ 2</div>
             </div>
             <q-separator color="black" class="q-my-sm" />
@@ -61,15 +54,18 @@
           <div class="q-pa-sm q-pt-md col-12">
             <div :class="screen > 1024 ? '' : 'f8-m'" style="margin-left: 42px">
               <div>
-                Choose the best answer to fill in the blank.
+                Translate each Thai sentence into English using the correct
+                given words and punctuations.
                 <q-icon class="q-pb-sm" name="fas fa-pen" />
               </div>
-              <div>เลือกคำตอบที่เหมาะสมที่สุดเพือเติมลงในช่องว่าง</div>
+              <div>
+                แปลประโยคภาษาไทยเป็นภาษาอังกฤษโดยเลือกใช้คำและเครื่องหมายวรรคตอนที่ถูกต้อง
+              </div>
 
               <div class="q-pt-md">
                 <div v-for="(item, index) in dataList" :key="item.id">
                   <div class="q-py-sm">
-                    <div>{{ index + 1 }}. {{ item.question }}</div>
+                    <div>{{ index + 1 }}. {{ item.sentenceTh }}</div>
                     <div style="width: 80%" class="row q-px-md">
                       <div
                         class="col-6 q-py-sm"
@@ -100,17 +96,22 @@
           </div>
           <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
-              <div class="col">
-                บทที่ 1 |
-                <span v-if="$route.params.skill == 'vocab'">คำศัพท์</span>
-                <span v-else-if="$route.params.skill == 'grammar'"
-                  >ไวยากรณ์</span
-                >
-                <span v-else>การอ่าน</span>
-              </div>
+              <div class="col">บทที่ 1 | การเขียน</div>
               <div>ป.3 | ระดับ 2</div>
             </div>
-            <q-separator color="black" class="q-my-sm" />
+            <q-separator color="black" class="q-my-xs" />
+            <div>
+              <div class="row">
+                <div>ชื่อ</div>
+                <div
+                  class="col q-mx-xs"
+                  style="white-space: nowrap; overflow: hidden"
+                >
+                  ..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+                </div>
+                <div>ชั้น .................. เลขที่...........</div>
+              </div>
+            </div>
           </div>
 
           <div class="q-pa-sm q-pt-md col-12">
@@ -120,20 +121,21 @@
                 <div class="q-pt-md text-left">
                   <div v-for="(item, index) in dataList" :key="item.id">
                     <div class="q-py-sm">
-                      <div v-for="(x, index2) in item.choice">
-                        <div v-if="index2 == item.answer">
-                          {{ index + 1 }}.
-                          <span class="q-mx-sm q-px-sm q-pb-xs mintbg q-pr-md"
-                            >{{ item.answer + 1 }}). {{ x }}</span
-                          >
-                        </div>
-                      </div>
-                      <div class="q-pt-sm" style="margin-left: 30px">
-                        <div>{{ item.sentenceEng }}</div>
-                        <div>{{ item.sentenceTh }}</div>
+                      <div class="q-pt-sm">
+                        <div>{{ index + 1 }}. {{ item.sentenceEng }}</div>
                       </div>
                     </div>
                   </div>
+                </div>
+                <q-separator color="black" class="q-my-sm" />
+                <span class="f20-pc">A Delicious Supper</span>
+                <div class="text-left">
+                  Mum cooked a delicious supper for my family yesterday . We had
+                  roast beef, baked potatoes and buttered peas . For dessert,
+                  Mum made a chocolate pudding and an apple pie . I ate a slice
+                  of apple pie with vanilla ice cream . The chocolate pudding
+                  looked yummy so I ate a bowl of pudding too . I really love
+                  Mum's cooking . I want my mum to cook for me forever .
                 </div>
               </div>
             </div>
@@ -150,32 +152,20 @@ export default {
   setup() {
     const dataList = [
       {
-        question: "I bought some apples to make an ______.",
-        choice: ["spaghetti", "apple pie", "pancake", "brownie"],
-        answer: 1,
-        sentenceEng: "I bought some apples to make an apple pie.",
-        sentenceTh: "ฉันซื้อแอปเปิ้ลมาทำพายแอปเปิ้ล",
+        sentenceTh: "แม่ทำอาหารมื้อค่ำที่อร่อยสำหรับครอบครัวของฉันเมื่อวานนี้",
+        sentenceEng: "Mum cooked a delicious supper for my family yesterday .",
       },
       {
-        question: "A is a soft cake made with nuts and chocolate.",
-        choice: ["brownie", "meatball", "pancake", "pickle"],
-        answer: 3,
+        sentenceTh: "พวกเราทานเนื้ออบ มันฝรั่งอบ และถั่วลันเตาใส่เนย",
         sentenceEng: "I bought some apples to make an apple pie.",
-        sentenceTh: "ฉันซื้อแอปเปิ้ลมาทำพายแอปเปิ้ล",
       },
       {
-        question: "animal",
-        choice: ["pancake", "brownie", "cat", "ketchup"],
-        answer: 2,
+        sentenceTh: "สำหรับของหวาน แม่ทำพุดดิ้งช็อกโกแลตและพายแอปเปิ้ล",
         sentenceEng: "I bought some apples to make an apple pie.",
-        sentenceTh: "ฉันซื้อแอปเปิ้ลมาทำพายแอปเปิ้ล",
       },
       {
-        question: "animal",
-        choice: ["pig", "apple pie", "pickle", "brownie"],
-        answer: 0,
+        sentenceTh: "ฉันกินพายแอปเปิ้ลหนึ่งชิ้นกับไอศกรีมวนิลา",
         sentenceEng: "I bought some apples to make an apple pie.",
-        sentenceTh: "ฉันซื้อแอปเปิ้ลมาทำพายแอปเปิ้ล",
       },
     ];
     return {

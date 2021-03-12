@@ -346,22 +346,23 @@
                 :header-class="
                   $route.params.skill == skill[index] ? 'mintbg' : ''
                 "
+                v-if="
+                  skill[index] == 'vocab' ||
+                  skill[index] == 'grammar' ||
+                  skill[index] == 'reading' ||
+                  skill[index] == 'writing'
+                "
                 group="somegroup"
                 class="f16-pc"
                 expand-separator
                 :label="menuItem.name"
                 :caption="menuItem.title"
               >
-                <q-separator
-                  color="grey-2"
-                  :key="'sep' + index"
-                  v-if="menuItem.separator"
-                />
                 <div>
                   <div>
                     <q-btn
                       v-if="
-                        skill[index] != 'listening' && skill[index] != 'grammar'
+                        skill[index] != 'writing' && skill[index] != 'grammar'
                       "
                       class="relative-position"
                       flat
@@ -383,9 +384,7 @@
                   <!-- grammar -->
                   <div>
                     <q-btn
-                      v-if="
-                        skill[index] != 'listening' && skill[index] == 'grammar'
-                      "
+                      v-if="skill[index] == 'grammar'"
                       class="relative-position"
                       flat
                       style="width: 100%; height: 50px"
@@ -407,9 +406,7 @@
                   </div>
                   <div>
                     <q-btn
-                      v-if="
-                        skill[index] != 'listening' && skill[index] == 'grammar'
-                      "
+                      v-if="skill[index] == 'grammar'"
                       class="relative-position"
                       flat
                       style="width: 100%; height: 50px"
@@ -429,6 +426,55 @@
                       </span></q-btn
                     >
                   </div>
+                  <div>
+                    <q-btn
+                      v-if="skill[index] == 'grammar'"
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="
+                        gotoWorksheet('แบบฝึกหัด เลือกคำตอบ 1', skill[index])
+                      "
+                      ><span
+                        :style="
+                          $route.params.tab == 'แบบฝึกหัด เลือกคำตอบ 1'
+                            ? 'color:#209F85;'
+                            : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                      >
+                        <span>แบบฝึกหัด เลือกคำตอบ 1</span>
+                      </span></q-btn
+                    >
+                  </div>
+                  <div>
+                    <q-btn
+                      v-if="skill[index] == 'grammar'"
+                      class="relative-position"
+                      flat
+                      style="width: 100%; height: 50px"
+                      color="white"
+                      text-color="black"
+                      @click="
+                        gotoWorksheet('แบบฝึกหัด เลือกคำตอบ 2', skill[index])
+                      "
+                      ><span
+                        :style="
+                          $route.params.tab == 'แบบฝึกหัด เลือกคำตอบ 2'
+                            ? 'color:#209F85;'
+                            : ''
+                        "
+                        style="margin-left: 25px"
+                        class="absolute-left q-px-md row items-center"
+                      >
+                        <span>แบบฝึกหัด เลือกคำตอบ 2</span>
+                      </span></q-btn
+                    >
+                  </div>
+
                   <div>
                     <q-btn
                       v-if="
@@ -488,7 +534,7 @@
                   <div>
                     <q-btn
                       v-if="
-                        skill[index] != 'listening' && skill[index] != 'grammar'
+                        skill[index] != 'writing' && skill[index] != 'grammar'
                       "
                       class="relative-position"
                       flat
@@ -512,7 +558,7 @@
                   </div>
                   <div>
                     <q-btn
-                      v-if="skill[index] == 'listening'"
+                      v-if="skill[index] == 'writing'"
                       class="relative-position"
                       flat
                       style="width: 100%; height: 50px"
@@ -539,7 +585,12 @@
             <q-separator
               color="grey-2"
               :key="'sep' + index"
-              v-if="menuItem.separator"
+              v-if="
+                skill[index] == 'vocab' ||
+                skill[index] == 'grammar' ||
+                skill[index] == 'reading' ||
+                skill[index] == 'writing'
+              "
             />
           </template>
         </q-scroll-area>
@@ -772,7 +823,7 @@ export default defineComponent({
           let tempe = "";
           if (skill == "grammar") {
             tempe = "เนื้อหา 1";
-          } else if (skill == "listening") {
+          } else if (skill == "writing") {
             tempe = "แบบฝึกหัด แปลประโยค";
           } else {
             tempe = "เนื้อหา";

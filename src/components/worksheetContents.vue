@@ -34,7 +34,14 @@
           </div>
           <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
-              <div class="col">บทที่ 1 | คำศัพท์</div>
+              <div class="col">
+                บทที่ 1 |
+                <span v-if="$route.params.skill == 'vocab'">คำศัพท์</span>
+                <span v-else-if="$route.params.skill == 'grammar'"
+                  >ไวยากรณ์</span
+                >
+                <span v-else>การอ่าน</span>
+              </div>
               <div>ป.3 | ระดับ 2</div>
             </div>
             <q-separator color="black" class="q-my-sm" />
@@ -153,6 +160,160 @@
                   style="max-width: 500px; width: 80%; height: 250px"
                   src="https://placeimg.com/500/300/nature"
                 />
+              </div>
+            </div>
+          </div>
+          <div
+            v-else-if="$route.params.skill == 'reading'"
+            class="q-pa-sm q-pt-md col-12"
+          >
+            <div align="center">
+              <div :class="screen > 1024 ? '' : 'f8-m'">
+                <div class="f20-pc q-py-md">Jack and the Magic Beans</div>
+
+                <div
+                  :class="screen > 1024 ? '' : 'f8-m'"
+                  style="margin-left: 42px"
+                  class="text-left"
+                >
+                  <div>
+                    Once upon a time there was a boy called Jack. He lived with
+                    his mother. They were very poor. When he was not working, he
+                    liked to play the flute.
+                  </div>
+                  <br />
+                  <div>
+                    One day his mother told Jack to sell the cow at the market.
+                    On the way to the market, Jack sold the cow to an old man.
+                    The old man did not give him any money but gave him five
+                    magic beans.
+                  </div>
+                  <br />
+                  <div>
+                    Jack went home and planted the beans in the garden. The
+                    beans were magic and grew high up to the sky.
+                  </div>
+                  <br />
+                  <div>
+                    Jack climbed up the top of the beanstalk, and saw a giant in
+                    a house. The giant looked sad. He said, "It's too quiet
+                    here. There is no music in this house". Jack took out his
+                    flute and played a beautiful tune. The giant smiled and
+                    thanked Jack. Then the giant asked Jack to have lunch with
+                    him. After lunch, the giant gave Jack a sack full of gold
+                    coins. Jack said goodbye to the giant and climbed down the
+                    beanstalk. Jack ran to his mother and gave the coins to her.
+                    And so, Jack and his mother lived happily ever after.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="$route.params.skill == 'reading'"
+      :class="screen > 1024 ? 'q-px-md q-pb-md' : 'q-pt-md'"
+    >
+      <div
+        :class="screen > 1024 ? 'q-pa-md shadow-5' : 'q-px-sm'"
+        style="border-radius: 10px"
+      >
+        <div class="row">
+          <div class="row items-center" style="width: 40px">
+            <img
+              style="max-width: 40px"
+              src="../../public/logo-worksheet.png"
+            />
+          </div>
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
+            <div class="row">
+              <div class="col">บทที่ 1 | การอ่าน</div>
+              <div>ป.3 | ระดับ 2</div>
+            </div>
+            <q-separator color="black" class="q-my-sm" />
+          </div>
+          <div class="q-pa-sm q-pt-md col-12">
+            <div align="center">
+              <div :class="screen > 1024 ? '' : 'f8-m'">
+                <div class="f20-pc q-pb-md">คำศัพท์เสริม</div>
+
+                <div class="row">
+                  <div class="col-4" v-for="(row, index) in dataList">
+                    <div>
+                      <div class="brx">{{ row.vocab }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="$route.params.skill == 'reading'"
+      :class="screen > 1024 ? 'q-px-md q-pb-md' : 'q-pt-md'"
+    >
+      <div
+        :class="screen > 1024 ? 'q-pa-md shadow-5' : 'q-px-sm'"
+        style="border-radius: 10px"
+      >
+        <div class="row">
+          <div class="row items-center" style="width: 40px">
+            <img
+              style="max-width: 40px"
+              src="../../public/logo-worksheet.png"
+            />
+          </div>
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
+            <div class="row">
+              <div class="col">บทที่ 1 | การอ่าน</div>
+              <div>ป.3 | ระดับ 2</div>
+            </div>
+            <q-separator color="black" class="q-my-sm" />
+          </div>
+          <div class="q-pa-sm q-pt-md col-12">
+            <div align="center">
+              <div :class="screen > 1024 ? '' : 'f8-m'">
+                <div class="f20-pc q-py-md">แจ็คกับถั่ววิเศษ</div>
+
+                <div
+                  :class="screen > 1024 ? '' : 'f8-m'"
+                  style="margin-left: 42px"
+                  class="text-left"
+                >
+                  <div>
+                    กาลครั้งหนึ่งมีเด็กชายคนหนึ่งชื่อ
+                    แจ็คเขาอาศัยอยู่กับแม่ของเขา พวกเขาจนมาก เวลาที่เขาไม่ได้
+                    ทำงานเขาจะชอบเล่นขลุ่ย
+                  </div>
+                  <br />
+                  <div>
+                    วันหนึ่งแม่ของเขาบอกให้แจ็คไปขายวัวที่ตลาด ระหว่างทางไปตลาด
+                    แจ็คขายวัวให้แก่ชายชราคนหนึ่ง ชายชราคนนั้นไม่ได้ให้เงินแจ็ค
+                    แต่ให้แจ็คเมล็ดถั่ววิเศษ 5 เมล็ด
+                  </div>
+                  <br />
+                  <div>
+                    แจ็คก็กลับบ้านและปลูกถั่วในสวน
+                    ถั่วเหล่านั้นเป็นถั่ววิเศษจึงเจริญเติบโตสูงขึ้นไปยังท้องฟ้า
+                  </div>
+                  <br />
+                  <div>
+                    แจ็คปีนขึ้นไปถึงยอดต้นถั่ว
+                    และเห็นยักษ์ตัวหนึ่งอยู่ในบ้านหลังหนึ่ง ยักษ์ตัวนั้นดูเศร้า
+                    เขาพูดว่า "ที่นี่มันเงียบเกินไป ไม่มีเสียงดนตรีในบ้านเลย"
+                    แจ็คเอาขลุ่ยของเขาออกมาและเล่นทำนองที่ไพเราะ
+                    เจ้ายักษ์ตนนั้นก็ยิ้มและขอบคุณแจ็ค
+                    แล้วยักษ์ก็ขอให้แจ็คทานอาหารกลางวันกับเขา หลังอาหารกลางวัน
+                    ยักษ์ก็ให้แจ็คถุงใบหนึ่งเต็มไปด้วยเหรียญทองคำ
+                    แจ็คกล่าวลายักษ์และปีนลงจากต้นถั่วแจ็ควิ่งไปหาแม่
+                    ของเขาและให้เหรียญทองคำแก่เธอ
+                    และดังนั้นแจ็คและแม่ของเขาก็อยู่อย่างมีความสุขจากนั้นตลอดไป
+                  </div>
+                </div>
               </div>
             </div>
           </div>
