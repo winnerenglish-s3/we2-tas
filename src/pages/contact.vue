@@ -22,7 +22,7 @@
         >
           <div
             v-if="status != 'online'"
-            class="z20"
+            class="f20"
             :class="screen >= 1200 ? ' q-pb-xl' : 'text-center q-pt-lg'"
           >
             ติดต่อทีมงาน
@@ -37,8 +37,8 @@
               />
             </div>
             <div class="col">
-              <div :class="screen >= 1200 ? 'z20' : 'z16'">ที่อยู่บริษัท</div>
-              <div :class="screen >= 1200 ? 'z16' : ''">
+              <div :class="screen >= 1200 ? 'f20' : 'f16'">ที่อยู่บริษัท</div>
+              <div :class="screen >= 1200 ? 'f16' : ''">
                 <div>1673/26 อาคารวิทยุคอมเพล็กซ์</div>
                 <div>ถนนเพชรบุรีตัดใหม่ แขวงมักกะสัน</div>
                 <div>เขตราชเทวี กรุงเทพฯ 10400</div>
@@ -54,8 +54,8 @@
               />
             </div>
             <div>
-              <div :class="screen >= 1200 ? 'z20' : 'z16'">โทรศัพท์</div>
-              <div :class="screen >= 1200 ? 'z16' : ''">
+              <div :class="screen >= 1200 ? 'f20' : 'f16'">โทรศัพท์</div>
+              <div :class="screen >= 1200 ? 'f16' : ''">
                 <div>02-252-2489</div>
               </div>
             </div>
@@ -65,8 +65,8 @@
               <q-icon size="20px" style="color: #505050" name="fab fa-line" />
             </div>
             <div>
-              <div :class="screen >= 1200 ? 'z20' : 'z16'">โซเชียลมีเดีย</div>
-              <div :class="screen >= 1200 ? 'z16' : ''">@Winner_QA</div>
+              <div :class="screen >= 1200 ? 'f20' : 'f16'">โซเชียลมีเดีย</div>
+              <div :class="screen >= 1200 ? 'f16' : ''">@Winner_QA</div>
             </div>
           </div>
           <div

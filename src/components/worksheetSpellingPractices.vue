@@ -72,8 +72,8 @@
                     <div
                       :style="
                         screen > 1024
-                          ? 'border-radius: 8px;margin:2px'
-                          : 'border-radius: 3px;margin:2px'
+                          ? 'border-radius: 8px;margin:2px;margin-top:10px'
+                          : 'border-radius: 3px;margin:2px;margin-top:5px'
                       "
                       style="border: 1px solid black; background: #d2d2d2"
                       class="row"
@@ -82,7 +82,7 @@
                       <div
                         :class="
                           screen > 1024
-                            ? 'q-pb-xs q-px-md z24'
+                            ? 'q-pb-xs q-px-md f24 '
                             : 'q-pb-xs q-px-sm z8'
                         "
                         class=""
@@ -106,7 +106,11 @@
       </div>
     </div>
     <div>
-      <q-separator v-if="screen <= 1024" style="height: 10px" class="q-my-sm" />
+      <q-separator
+        v-if="screen <= 1024"
+        style="height: 10px; background: #f2f2f2"
+        class="q-my-sm"
+      />
     </div>
     <div :class="screen > 1024 ? 'q-px-md q-pb-md' : 'q-pt-md'">
       <div

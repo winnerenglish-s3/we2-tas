@@ -35,10 +35,10 @@
           @click="closebreakpoint = false"
         />
         <q-toolbar-title>
-          <div v-if="$route.name == 'contact'" class="z20">ติดต่อทีมงาน</div>
+          <div v-if="$route.name == 'contact'" class="f20">ติดต่อทีมงาน</div>
           <div
             v-if="$route.name == 'material'"
-            :class="screen > 1024 ? 'z20' : 'z16 q-pb-xs'"
+            :class="screen > 1024 ? 'f20' : 'f16 q-pb-xs'"
           >
             <span v-if="$route.params.type == '1'">คำศัพท์</span>
             <span v-if="$route.params.type == '2'">ไวยกรณ์</span>
@@ -79,7 +79,7 @@
             >
             </q-btn>
           </div>
-          <div class="z16" v-if="screen < 1200 && !drawer">
+          <div class="f16" v-if="screen < 1200 && !drawer">
             {{ level.label }} | {{ unit.label }}
           </div>
         </div>
@@ -155,7 +155,7 @@
               v-ripple
             >
               <q-item-section>
-                <span class="z16">{{ menuItem.name }}</span>
+                <span class="f16">{{ menuItem.name }}</span>
                 <span style="color: #616161">{{ menuItem.title }}</span>
               </q-item-section>
               <q-item-section class="absolute-right">
@@ -181,7 +181,7 @@
                 :header-class="isCheckTab == index ? 'mintbg' : ''"
                 group="somegroup"
                 :default-opened="index == 0"
-                class="z16"
+                class="f16"
                 expand-separator
                 :label="menuItem.name"
                 :caption="menuItem.title"

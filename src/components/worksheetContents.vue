@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -60,12 +60,12 @@
             class="q-pa-sm q-pt-md col-12"
           >
             <div align="center">
-              <div :class="screen > 1024 ? 'z18' : ''" class="q-pb-md">
+              <div :class="screen > 1024 ? 'f18' : ''" class="q-pb-md">
                 Animals
               </div>
               <div style="width: 100%" class="box">
                 <table
-                  :class="screen > 1024 ? 'z16' : 'z8'"
+                  :class="screen > 1024 ? 'f16' : 'f8'"
                   style="border-top-left-radius: 10px"
                 >
                   <thead style="border-radius: 10px">
@@ -113,7 +113,7 @@
                   </tbody>
                 </table>
               </div>
-              <div :class="screen > 1024 ? '' : 'z8'" class="q-my-md">
+              <div :class="screen > 1024 ? '' : 'f8'" class="q-my-md">
                 **สแกนคิวอาร์โค้ดเพื่อฟังการออกเสียง**
               </div>
             </div>
@@ -123,7 +123,7 @@
             class="q-pa-sm q-pt-md col-12"
           >
             <div align="center">
-              <div class="q-pb-md z18">Nouns</div>
+              <div class="q-pb-md f18">Nouns</div>
               <div class="text-left" style="max-width: 500px; width: 80%">
                 <div class="row justify-between">
                   <div>หน้าปก (NEW)</div>

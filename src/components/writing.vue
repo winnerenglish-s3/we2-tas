@@ -29,7 +29,7 @@
     <!-- เนื้อหา -->
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div style="max-width: 500px; width: 100%">
-        <div :class="screen > 1024 ? '' : 'q-py-md'" class="z16">My Pets</div>
+        <div :class="screen > 1024 ? '' : 'q-py-md'" class="f16">My Pets</div>
         <div class="text-left">
           <div class="q-py-md" v-if="screen > 1024">
             Kitty and Spot are my pets. Kitty is a cat. Spot is a dog. Kitty and
@@ -45,11 +45,11 @@
                 <span v-if="screen > 1024"> ประโยคที่ {{ index + 1 }} :</span>
                 <span v-else>{{ index + 1 }}</span>
                 <div class="q-px-md">
-                  <div :class="screen > 1024 ? 'z16' : ''">
+                  <div :class="screen > 1024 ? 'f16' : ''">
                     {{ item.sentenceEng }}
                   </div>
                   <div
-                    :class="screen > 1024 ? '' : 'z12'"
+                    :class="screen > 1024 ? '' : 'f12'"
                     style="color: #616161"
                   >
                     {{ item.sentenceTh }}

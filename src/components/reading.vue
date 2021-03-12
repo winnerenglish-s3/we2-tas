@@ -29,7 +29,7 @@
     <!-- เนื้อหา -->
     <div align="center" class="q-pa-md">
       <div style="max-width: 500px; width: 100%">
-        <div class="z16">Kitty the cat</div>
+        <div class="f16">Kitty the cat</div>
       </div>
       <div class="q-py-md">
         <q-img
@@ -43,7 +43,7 @@
           black. Kitty likes the black mat.
         </div>
         <q-separator style="max-width: 600px" class="q-my-md" color="grey-2" />
-        <div class="z16 q-pb-sm">แมวคิตตี้</div>
+        <div class="f16 q-pb-sm">แมวคิตตี้</div>
         <div style="max-width: 500px; width: 100%" class="q-px-lg text-left">
           นี่คือคิตตี้ คิตตี้เป็นแมวตัวหนึ่ง มันเป็นสีขาว มันอยู่บนเสื่อผืนหนึ่ง
           เสื่อนั้นเป็นสีดำ คิตตี้ชอบเสื่อสีดำผืนนั้น
