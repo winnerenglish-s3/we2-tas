@@ -13,33 +13,69 @@ body {
   /* font-family: Sarabun-Regular; */
   font-family: Regular-sarabun;
   font-size: calc(14px);
+
 }
 
-.f8 {
-  font-size: calc(8px);
+// @media screen and (min-width: 320px) {
+//   body {
+//     font-size: clamp(8px, 3vw, 22px);
+//   }
+// }
+
+// @media screen and (min-width: 1000px) {
+//   body {
+//     font-size: 14px;
+//   }
+// }
+
+// มือถือ ขนาดของเนื้อหา
+.f8-m {
+  font-size: min(max(8px, 3vw), 14px);
 }
 
-.f9 {
+.f9-m {
+  font-size: min(max(9px, 3vw), 16px);
+}
+
+.f10-m {
+  font-size: min(max(10px, 4vw), 10px);
+}
+
+.f12-m {
+  font-size: min(max(12px, 4vw), 12px);
+}
+
+
+.f14-m {
+  font-size: min(max(14px, 4vw), 18px);
+}
+
+.f16-m {
+  font-size: min(max(16px, 4vw), 16px);
+}
+
+// pc
+.f9-pc {
   font-size: calc(9px);
 }
 
-.f10 {
+.f10-pc {
   font-size: calc(10px);
 }
 
-.z16 {
+.f16-pc {
   font-size: calc(16px);
 }
 
-.f18 {
+.f18-pc {
   font-size: calc(18px);
 }
 
-.f20 {
+.f20-pc {
   font-size: calc(20px);
 }
 
-.f24 {
+.f24-pc {
   font-size: calc(24px);
 }
 

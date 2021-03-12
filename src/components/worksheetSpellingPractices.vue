@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -59,7 +59,7 @@
             v-if="$route.params.skill == 'vocab'"
             class="q-pa-sm q-pt-md col-12"
           >
-            <div :class="screen > 1024 ? '' : 'z8'" style="margin-left: 42px">
+            <div :class="screen > 1024 ? '' : 'f8-m'" style="margin-left: 42px">
               <div>
                 Arrange given alphabets to form the correct translation.
               </div>
@@ -82,8 +82,8 @@
                       <div
                         :class="
                           screen > 1024
-                            ? 'q-pb-xs q-px-md f24 '
-                            : 'q-pb-xs q-px-sm z8'
+                            ? 'q-pb-xs q-px-md f24-pc '
+                            : 'q-pb-xs q-px-sm f8-m'
                         "
                         class=""
                       >
@@ -124,7 +124,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'z8'">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -153,7 +153,7 @@
           >
             <div
               align="center"
-              :class="screen > 1024 ? '' : 'z8'"
+              :class="screen > 1024 ? '' : 'f8-m'"
               style="margin-left: 42px"
             >
               <div>เฉลย</div>

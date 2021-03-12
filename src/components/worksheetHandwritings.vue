@@ -32,7 +32,7 @@
               src="../../public/logo-worksheet.png"
             />
           </div>
-          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8'">
+          <div class="col q-px-sm" :class="screen > 1024 ? '' : 'f8-m'">
             <div class="row">
               <div class="col">บทที่ 1 | คำศัพท์</div>
               <div>ป.3 | ระดับ 2</div>
@@ -56,7 +56,7 @@
           </div>
 
           <div class="q-pa-sm q-pt-md col-12">
-            <div :class="screen > 1024 ? '' : 'f8'" style="margin-left: 42px">
+            <div :class="screen > 1024 ? '' : 'f8-m'" style="margin-left: 42px">
               คำสั่ง ให้นักเรียนเขียนทับคำศัทพ์ทีล่ะคำ
             </div>
             <div align="center">
@@ -71,7 +71,7 @@
               <div class="row">
                 <div class="col-3"></div>
                 <div
-                  :class="screen > 1024 ? 'f18 q-pt-md' : 'f10 q-pt-xs'"
+                  :class="screen > 1024 ? 'f18 q-pt-md' : 'f10-m q-pt-xs'"
                   class="col row text-center"
                 >
                   <div class="col text-right">bear</div>
@@ -85,7 +85,7 @@
                     style="max-width: 120px; width: 100%"
                     src="../../public/qr-code.png"
                   />
-                  <div :class="screen > 1024 ? 'f10' : 'f8'">
+                  <div :class="screen > 1024 ? 'f10-pc' : 'f8-m'">
                     สแกนเพื่อฟังการออกเสียง
                   </div>
                 </div>

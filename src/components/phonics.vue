@@ -26,13 +26,15 @@
         </q-menu>
       </q-btn>
     </div>
-    <div v-else class="q-py-md text-center f16">Beginning Sounds b, c, d</div>
+    <div v-else class="q-py-md text-center f16-pc">
+      Beginning Sounds b, c, d
+    </div>
     <!-- เนื้อหา -->
     <div align="center" :class="screen > 1024 ? 'q-pa-md' : ''">
       <div class="text-left" style="max-width: 500px; width: 100%">
-        <div class="f16 row justify-between">
-          <div :class="screen > 1024 ? 'f16' : ''">เสียงคำขึ้นต้น b #1</div>
-          <div :class="screen > 1024 ? 'f16' : ''">(1/1)</div>
+        <div class="f16-pc row justify-between">
+          <div :class="screen > 1024 ? 'f16-pc' : ''">เสียงคำขึ้นต้น b #1</div>
+          <div :class="screen > 1024 ? 'f16-pc' : ''">(1/1)</div>
         </div>
         <div class="q-py-sm">
           <q-img

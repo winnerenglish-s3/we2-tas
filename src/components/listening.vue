@@ -26,7 +26,7 @@
         </q-menu>
       </q-btn>
     </div>
-    <div v-else class="q-py-md text-center f16">
+    <div v-else class="q-py-md text-center f16-m">
       What Is This / That? It Is a ______.
     </div>
     <!-- เนื้อหา -->

@@ -29,7 +29,7 @@
     <!-- เนื้อหา -->
     <div align="center" class="q-pa-md">
       <div style="max-width: 500px; width: 100%">
-        <div class="f16">Kitty the cat</div>
+        <div class="f16-m">Kitty the cat</div>
       </div>
       <div class="q-py-md">
         <q-img

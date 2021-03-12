@@ -5,7 +5,7 @@
       class="mintbg row items-cente row items-center"
       style="height: 50px"
     >
-      <div class="f16" v-if="screen <= 1024">Animals</div>
+      <div class="f16-m" v-if="screen <= 1024">Animals</div>
       <q-btn
         round
         icon="fas fa-ellipsis-v"
@@ -36,7 +36,7 @@
           />
         </div>
         <div
-          :class="screen > 1024 ? 'f16 q-pt-xs' : 'q-pt-sm'"
+          :class="screen > 1024 ? 'f16-pc q-pt-xs' : 'q-pt-sm f8-m'"
           class="q-px-md col"
         >
           <div>{{ item.vocab }} {{ item.partOfSpeech }}</div>

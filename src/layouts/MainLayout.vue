@@ -35,10 +35,10 @@
           @click="closebreakpoint = false"
         />
         <q-toolbar-title>
-          <div v-if="$route.name == 'contact'" class="f20">ติดต่อทีมงาน</div>
+          <div v-if="$route.name == 'contact'" class="f20-pc">ติดต่อทีมงาน</div>
           <div
             v-if="$route.name == 'material'"
-            :class="screen > 1024 ? 'f20' : 'f16 q-pb-xs'"
+            :class="screen > 1024 ? 'f20-pc' : 'f16 q-pb-xs'"
           >
             <span v-if="$route.params.type == '1'">คำศัพท์</span>
             <span v-if="$route.params.type == '2'">ไวยกรณ์</span>
