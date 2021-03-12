@@ -1,19 +1,19 @@
 <template>
   <q-page>
     <!-- vocab -->
-    <vocab v-if="$route.params.type == '1'" :type="1" />
+    <vocab v-if="$route.params.type == 'คำศัพท์'" :type="1" />
     <!-- grammar -->
-    <grammar v-if="$route.params.type == '2'" :type="2" />
+    <grammar v-if="$route.params.type == 'ไวยากรณ์'" :type="2" />
     <!-- reading -->
-    <reading v-if="$route.params.type == '3'" :type="4" />
+    <reading v-if="$route.params.type == 'การอ่าน'" :type="4" />
     <!-- writing -->
-    <writing v-if="$route.params.type == '4'" :type="5" />
+    <writing v-if="$route.params.type == 'การเขียน'" :type="5" />
     <!-- phonics -->
-    <phonics v-if="$route.params.type == '5'" :type="6" />
+    <phonics v-if="$route.params.type == 'การออกเสียง'" :type="6" />
     <!-- languagetips -->
-    <languagetips v-if="$route.params.type == '6'" :type="6" />
+    <languagetips v-if="$route.params.type == 'เคล็ดลับภาษา'" :type="6" />
     <!-- languagetips -->
-    <listening v-if="$route.params.type == '7'" :type="7" />
+    <listening v-if="$route.params.type == 'การพูดและฟัง'" :type="7" />
   </q-page>
 </template>
 

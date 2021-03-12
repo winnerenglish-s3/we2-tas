@@ -32,21 +32,183 @@
           round
           icon="fas fa-arrow-left"
           aria-label="Menu"
-          @click="closebreakpoint = false"
+          @click="backmenu()"
         />
         <q-toolbar-title>
           <div v-if="$route.name == 'contact'" class="f20-pc">ติดต่อทีมงาน</div>
-          <div
-            v-if="$route.name == 'material'"
-            :class="screen > 1024 ? 'f20-pc' : 'f16 q-pb-xs'"
-          >
-            <span v-if="$route.params.type == '1'">คำศัพท์</span>
-            <span v-if="$route.params.type == '2'">ไวยกรณ์</span>
-            <span v-if="$route.params.type == '3'">การอ่าน</span>
-            <span v-if="$route.params.type == '4'">การเขียน</span>
-            <span v-if="$route.params.type == '5'">การออกเสียง</span>
-            <span v-if="$route.params.type == '6'">เคล็ดลับภาษา</span>
-            <span v-if="$route.params.type == '7'">การพูดและฟัง</span>
+
+          <div :class="screen > 1024 ? 'f20-pc' : 'f16-m q-pb-xs'">
+            <span v-if="$route.name == 'worksheet' && screen > 1024"
+              >ใบงาน</span
+            >
+            <span
+              v-if="
+                $route.name == 'worksheet' &&
+                screen < 1024 &&
+                $route.params.position == 'main'
+              "
+              >ใบงาน</span
+            >
+            <div v-if="$route.params.position == 'main'">
+              <span v-if="$route.name == 'material'">เนื้อหา</span>
+            </div>
+            <div
+              v-else
+              v-if="
+                $route.name == 'material' ||
+                ($route.name == 'worksheet' && screen <= 1024)
+              "
+            >
+              <span>
+                <span
+                  v-if="
+                    $route.params.type == 'คำศัพท์' ||
+                    $route.params.skill == 'vocab'
+                  "
+                  >คำศัพท์</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' && $route.params.skill == 'vocab'
+                  "
+                >
+                  <span v-if="$route.params.tab == 'เนื้อหา'"> - เนื้อหา</span>
+                  <span v-if="$route.params.tab == 'คัดลายมือ'">
+                    - คัดลายมือ</span
+                  >
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด สะกดคำ'">
+                    - แบบฝึกหัด สะกดคำ</span
+                  >
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'">
+                    - แบบฝึกหัด เลือกคำตอบ</span
+                  ></span
+                >
+              </span>
+              <span
+                ><span
+                  v-if="
+                    $route.params.type == 'ไวยากรณ์' ||
+                    $route.params.skill == 'grammar'
+                  "
+                  >ไวยากรณ์</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'grammar'
+                  "
+                  ><span v-if="$route.params.tab == 'เนื้อหา 1'">
+                    - เนื้อหา 1</span
+                  >
+                  <span v-if="$route.params.tab == 'เนื้อหา 2'">
+                    - เนื้อหา 2</span
+                  >
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ 1'">
+                    - แบบฝึกหัด เลือกคำตอบ 1</span
+                  >
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ 2'">
+                    - แบบฝึกหัด เลือกคำตอบ 2</span
+                  ></span
+                >
+              </span>
+              <span
+                ><span
+                  v-if="
+                    $route.params.type == 'การอ่าน' ||
+                    $route.params.skill == 'reading'
+                  "
+                  >การอ่าน</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'reading'
+                  "
+                  ><span v-if="$route.params.tab == 'เนื้อหา'"> - เนื้อหา</span>
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'">
+                    - แบบฝึกหัด เลือกคำตอบ</span
+                  ></span
+                >
+              </span>
+              <span
+                ><span
+                  v-if="
+                    $route.params.type == 'การเขียน' ||
+                    $route.params.skill == 'writing'
+                  "
+                  >การเขียน</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'writing'
+                  "
+                >
+                  <span v-if="$route.params.tab == 'เนื้อหา'"> - เนื้อหา</span>
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'">
+                    - แบบฝึกหัด เลือกคำตอบ</span
+                  ></span
+                >
+              </span>
+              <span>
+                <span
+                  v-if="
+                    $route.params.type == 'การออกเสียง' ||
+                    $route.params.skill == 'phonics'
+                  "
+                  >การออกเสียง</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'phonics'
+                  "
+                >
+                  <span v-if="$route.params.tab == 'เนื้อหา'"> - เนื้อหา</span>
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'">
+                    - แบบฝึกหัด เลือกคำตอบ</span
+                  ></span
+                >
+              </span>
+              <span>
+                <span
+                  v-if="
+                    $route.params.type == 'เคล็ดลับภาษา' ||
+                    $route.params.skill == 'languagetips'
+                  "
+                  >เคล็ดลับภาษา</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'languagetips'
+                  "
+                  ><span v-if="$route.params.tab == 'เนื้อหา'"> - เนื้อหา</span>
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'">
+                    - แบบฝึกหัด เลือกคำตอบ</span
+                  ></span
+                >
+              </span>
+              <span>
+                <span
+                  v-if="
+                    $route.params.type == 'การพูดและฟัง' ||
+                    $route.params.skill == 'listening'
+                  "
+                  >การพูดและฟัง</span
+                >
+                <span
+                  v-if="
+                    $route.name == 'worksheet' &&
+                    $route.params.skill == 'listening'
+                  "
+                >
+                  <span v-if="$route.params.tab == 'แบบฝึกหัด แปลประโยค'">
+                    - แบบฝึกหัด แปลประโยค</span
+                  ></span
+                >
+              </span>
+            </div>
           </div>
         </q-toolbar-title>
 
@@ -79,7 +241,10 @@
             >
             </q-btn>
           </div>
-          <div class="f16" v-if="screen < 1200 && !drawer">
+          <div
+            class="f16-m"
+            v-if="screen < 1200 && !drawer && $route.name == 'material'"
+          >
             {{ level.label }} | {{ unit.label }}
           </div>
         </div>
@@ -155,7 +320,7 @@
               v-ripple
             >
               <q-item-section>
-                <span class="f16">{{ menuItem.name }}</span>
+                <span class="f16-pc">{{ menuItem.name }}</span>
                 <span style="color: #616161">{{ menuItem.title }}</span>
               </q-item-section>
               <q-item-section class="absolute-right">
@@ -178,10 +343,11 @@
             <q-list style="width: 100%">
               <q-expansion-item
                 @click="isCheck(index, skill[index])"
-                :header-class="isCheckTab == index ? 'mintbg' : ''"
+                :header-class="
+                  $route.params.skill == skill[index] ? 'mintbg' : ''
+                "
                 group="somegroup"
-                :default-opened="index == 0"
-                class="f16"
+                class="f16-pc"
                 expand-separator
                 :label="menuItem.name"
                 :caption="menuItem.title"
@@ -202,10 +368,10 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(1, skill[index])"
+                      @click="gotoWorksheet('เนื้อหา', skill[index])"
                       ><span
                         :style="
-                          $route.params.type == '1' ? 'color:#209F85;' : ''
+                          $route.params.tab == 'เนื้อหา' ? 'color:#209F85;' : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -225,10 +391,12 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(6, skill[index])"
+                      @click="gotoWorksheet('เนื้อหา 1', skill[index])"
                       ><span
                         :style="
-                          $route.params.type == '6' ? 'color:#209F85;' : ''
+                          $route.params.tab == 'เนื้อหา 1'
+                            ? 'color:#209F85;'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -247,10 +415,12 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(7, skill[index])"
+                      @click="gotoWorksheet('เนื้อหา 2', skill[index])"
                       ><span
                         :style="
-                          $route.params.type == '7' ? 'color:#209F85;' : ''
+                          $route.params.tab == 'เนื้อหา 2'
+                            ? 'color:#209F85;'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -274,10 +444,12 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(2, skill[index])"
+                      @click="gotoWorksheet('คัดลายมือ', skill[index])"
                       ><span
                         :style="
-                          $route.params.type == '2' ? 'color:#209F85' : ''
+                          $route.params.tab == 'คัดลายมือ'
+                            ? 'color:#209F85'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -300,10 +472,12 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(3, skill[index])"
+                      @click="gotoWorksheet('แบบฝึกหัด สะกดคำ', skill[index])"
                       ><span
                         :style="
-                          $route.params.type == '3' ? 'color:#209F85' : ''
+                          $route.params.tab == 'แบบฝึกหัด สะกดคำ'
+                            ? 'color:#209F85'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -321,10 +495,14 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(4, skill[index])"
+                      @click="
+                        gotoWorksheet('แบบฝึกหัด เลือกคำตอบ', skill[index])
+                      "
                       ><span
                         :style="
-                          $route.params.type == '4' ? 'color:#209F85' : ''
+                          $route.params.tab == 'แบบฝึกหัด เลือกคำตอบ'
+                            ? 'color:#209F85'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -340,10 +518,14 @@
                       style="width: 100%; height: 50px"
                       color="white"
                       text-color="black"
-                      @click="gotoWorksheet(5, skill[index])"
+                      @click="
+                        gotoWorksheet('แบบฝึกหัด แปลประโยค', skill[index])
+                      "
                       ><span
                         :style="
-                          $route.params.type == '5' ? 'color:#209F85' : ''
+                          $route.params.tab == 'แบบฝึกหัด แปลประโยค'
+                            ? 'color:#209F85'
+                            : ''
                         "
                         style="margin-left: 25px"
                         class="absolute-left q-px-md row items-center"
@@ -427,7 +609,7 @@ const linksList = [
 
 const dataList = [
   {
-    type: 1,
+    type: "คำศัพท์",
     name: "คำศัพท์",
     title: "Animals",
     separator: true,
@@ -435,7 +617,7 @@ const dataList = [
     iconright: "fas fa-chevron-right",
   },
   {
-    type: 2,
+    type: "ไวยากรณ์",
     name: "ไวยากรณ์",
     title: "Nouns",
     separator: true,
@@ -444,7 +626,7 @@ const dataList = [
   },
 
   {
-    type: 3,
+    type: "การอ่าน",
     name: "การอ่าน",
     title: "Kitty the cat",
     separator: true,
@@ -453,7 +635,7 @@ const dataList = [
   },
 
   {
-    type: 4,
+    type: "การเขียน",
     name: "การเขียน",
     title: "My Pets",
     separator: true,
@@ -461,7 +643,7 @@ const dataList = [
     iconright: "fas fa-chevron-right",
   },
   {
-    type: 5,
+    type: "การออกเสียง",
     name: "การออกเสียง",
     title: "Beginning Sounds b, c, d",
     separator: true,
@@ -469,7 +651,7 @@ const dataList = [
     iconright: "fas fa-chevron-right",
   },
   {
-    type: 6,
+    type: "เคล็ดลับภาษา",
     name: "เคล็ดลับภาษา",
     title: "Language Tips",
     separator: true,
@@ -477,7 +659,7 @@ const dataList = [
     iconright: "fas fa-chevron-right",
   },
   {
-    type: 7,
+    type: "การพูดและฟัง",
     name: "การพูดและฟัง",
     title: "What Is This / That? It Is a ______.",
     separator: true,
@@ -541,7 +723,7 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
       goto(val) {
-        isCheckTab.value = false;
+        isCheckTab.value = 0;
         val == 1 ? this.$router.push("/main") : "";
         val == 2 ? this.$router.push("/lesson") : "";
         val == 3 ? this.$router.push("/student") : "";
@@ -550,7 +732,7 @@ export default defineComponent({
           ? this.$router.push({
               name: "material",
               params: {
-                type: 1,
+                position: "main",
               },
             })
           : "";
@@ -558,7 +740,8 @@ export default defineComponent({
           ? this.$router.push({
               name: "worksheet",
               params: {
-                type: 1,
+                skill: "vocab",
+                position: "main",
               },
             })
           : "";
@@ -578,8 +761,9 @@ export default defineComponent({
         this.$router.push({
           name: "worksheet",
           params: {
-            type: val,
+            position: "practice",
             skill: skill,
+            tab: val,
           },
         });
       },
@@ -587,21 +771,26 @@ export default defineComponent({
         if (this.$route.name == "worksheet") {
           let tempe = "";
           if (skill == "grammar") {
-            tempe = 6;
+            tempe = "เนื้อหา 1";
           } else if (skill == "listening") {
-            tempe = 5;
+            tempe = "แบบฝึกหัด แปลประโยค";
           } else {
-            tempe = 1;
+            tempe = "เนื้อหา";
           }
           this.$router.push({
             name: "worksheet",
             params: {
               skill: skill,
-              type: tempe,
+              position: "main",
+              tab: tempe,
             },
           });
         }
         isCheckTab.value = val;
+      },
+      backmenu() {
+        this.closebreakpoint = false;
+        this.$route.params.position = "main";
       },
     };
   },

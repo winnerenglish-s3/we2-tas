@@ -57,7 +57,7 @@
 
           <div class="q-pa-sm q-pt-md col-12">
             <div :class="screen > 1024 ? '' : 'f8-m'" style="margin-left: 42px">
-              คำสั่ง ให้นักเรียนเขียนทับคำศัทพ์ทีล่ะคำ
+              <b>คำสั่ง</b> ให้นักเรียนเขียนทับคำศัทพ์ทีล่ะคำ
             </div>
             <div align="center">
               <span
@@ -89,9 +89,21 @@
                     สแกนเพื่อฟังการออกเสียง
                   </div>
                 </div>
-                <div class="col row text-center" style="width: 100%">
-                  <div class="col-12"></div>
-                  <div class="col-12"></div>
+                <div
+                  class="col row text-center"
+                  style="width: 100%; font-family: Trace"
+                  :style="screen > 1024 ? 'font-size: 60px' : 'font-size: 6vw;'"
+                >
+                  <div class="col-12 row q-mb-md">
+                    <div class="col">bear</div>
+                    <div class="col">bear</div>
+                    <div class="col">bear</div>
+                  </div>
+                  <div class="col-12 row">
+                    <div class="col">bear</div>
+                    <div class="col">bear</div>
+                    <div class="col">bear</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -162,5 +174,9 @@ table td:last-child {
 }
 table th:last-child {
   border-right: none;
+}
+@font-face {
+  font-family: Trace;
+  src: url(../assets/Trace.ttf);
 }
 </style>
